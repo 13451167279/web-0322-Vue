@@ -24,4 +24,9 @@ export default {
 </script>
 
 <style  scoped>
+.reply {
+  margin-top: 0px;
+}
+
+
 </style>
