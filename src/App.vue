@@ -1,36 +1,65 @@
 <template>
   <div id="app">
-    <div class="row">
-      <div class=" col-md-offset-2 panel">
-        <h1>router-test</h1>
+    <div class="todo-container">
+      <div class="todo-wrap">
+        <Header></Header>
+        <List></List>
+        <Footer></Footer>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-offset-2 col-md-2 list-group">
-        <router-link active-class="myBgcolor" class="list-group-item" to="/home">Home</router-link>
-        <router-link active-class="myBgcolor" class="list-group-item" to="/about">About</router-link>
-      </div>
-      <div class="col-md-8 panel">
-        <keep-alive >
-          <router-view aa='aaa111'></router-view>
-        </keep-alive>
-      </div>
-    </div>
+    <!-- <props-test name='hhhhh'></props-test> -->
   </div>
 </template>
 
 <script>
+import Footer from './components/Footer.vue'
+import Header from './components/Header.vue'
+import List from './components/List.vue'
+// import PropsTest from './components/test/PropsTest.vue'
+
 export default {
   name: 'App',
   data() {
     return {
+      // todos: [
+      //   { id: 1, title: '西游记', isCompleted: true },
+      //   { id: 2, title: '三国演义', isCompleted: false },
+      //   { id: 3, title: '水浒传', isCompleted: false },
+      //   { id: 4, title: '红楼梦', isCompleted: true },
+      //   { id: 5, title: '西厢记', isCompleted: false },
+      //   { id: 6, title: '东游记', isCompleted: false },
+      // ],
 
     }
   },
 
+  mounted() {
+    this.$store.dispatch('getTodoList')
+  },
+
+
+
+  methods: {
+
+  },
+  components: {
+    Footer,
+    Header,
+    List,
+    // PropsTest
+  }
 }
 
 </script>
 
 <style scoped>
+.todo-container {
+  width: 600px;
+  margin: 0 auto;
+}
+.todo-container .todo-wrap {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
 </style>
